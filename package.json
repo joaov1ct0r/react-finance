@@ -1,0 +1,34 @@
+{
+  "name": "react-finance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaov1ct0r/react-finance.git"
+  },
+  "keywords": [],
+  "author": "github.com/joaov1ct0r",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaov1ct0r/react-finance/issues"
+  },
+  "homepage": "https://github.com/joaov1ct0r/react-finance#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^3.0.1",
+    "typescript": "^4.8.4",
+    "vite": "^4.0.4"
+  }
+}
