@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Finance from "./utils/Finance";
 
 function App() {
-  const [values, setValues] = useState<string[]>([]);
+  const [values, setValues] = useState<Finance[]>([]);
   const [value, setValue] = useState<string>("");
 
   return (
@@ -29,7 +30,12 @@ function App() {
       <div>
         <ul>
           {values.map((value) => {
-            return <li key={value}>${value}</li>;
+            return (
+              <li key={value.id} id={String(value.id)}>
+                Description: {value.description} | Valor: ${value.value} Data:{" "}
+                {String(value.date)} |
+              </li>
+            );
           })}
         </ul>
       </div>
