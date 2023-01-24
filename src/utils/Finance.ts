@@ -4,9 +4,9 @@ export default class Finance {
   public readonly id: number;
   public readonly description: string;
   public readonly value: number;
-  public readonly date: Date;
+  public readonly date: string;
 
-  constructor(description: string, value: number, date: Date) {
+  constructor(description: string, value: number, date: string) {
     this.id = new GenerateId().execute();
     this.description = description;
     this.value = value;
