@@ -4,7 +4,12 @@ import { useForm } from "react-hook-form";
 
 function App() {
   const [values, setValues] = useState<Finance[]>([]);
-  const { register, handleSubmit, reset } = useForm<Finance>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Finance>({
     defaultValues: {
       date: "",
       value: "" as unknown as number,
@@ -14,6 +19,9 @@ function App() {
 
   return (
     <>
+      {errors.date && alert(errors.date.message)}
+      {errors.value && alert(errors.value.message)}
+      {errors.description && alert(errors.description.message)}
       <form
         onSubmit={handleSubmit((data) => {
           setValues([
@@ -30,7 +38,10 @@ function App() {
               value: true,
               message: "Valor é obrigatorio",
             },
-            pattern: /[0-9]{1,5}$/,
+            pattern: {
+              value: /[0-9]{1,5}$/,
+              message: "Valor Invalido",
+            },
           })}
           type="text"
           placeholder="Valor gasto"
@@ -42,7 +53,10 @@ function App() {
               value: true,
               message: "Data é obrigatorio",
             },
-            pattern: /[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/,
+            pattern: {
+              value: /[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/,
+              message: "Data Invalida",
+            },
           })}
           type="text"
           placeholder="Data"
@@ -54,7 +68,10 @@ function App() {
               value: true,
               message: "Descrição é obrigatorio",
             },
-            pattern: /[a-z][A-Z]{1,100}$/gi,
+            pattern: {
+              value: /[a-z][A-Z]{1,100}$/gi,
+              message: "Descrição invalida",
+            },
           })}
           type="text"
           placeholder="Descrição"
@@ -62,7 +79,6 @@ function App() {
 
         <button type="submit">Salvar</button>
       </form>
-
       <div>
         <ul>
           {values.map((value) => {
