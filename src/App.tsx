@@ -19,13 +19,6 @@ function App() {
 
   return (
     <div>
-      <header>
-        <h1>React Finance</h1>
-        <ul>
-          <li>Nova Finança</li>
-          <li>Finanças</li>
-        </ul>
-      </header>
       {errors.date && <span>{errors.date.message}</span>}
       {errors.value && <span>{errors.value.message}</span>}
       {errors.description && <span>{errors.description.message}</span>}
@@ -38,6 +31,7 @@ function App() {
 
           reset();
         })}
+        className="margin-auto"
       >
         <input
           {...register("value", {
