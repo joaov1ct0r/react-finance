@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Finance from "./utils/Finance";
 import { useForm } from "react-hook-form";
+import Header from "./components/Header";
 
 function App() {
   const [values, setValues] = useState<Finance[]>([]);
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="container">
+      <Header />
       {errors.date && (
         <div className="alert alert-danger">{errors.date.message}</div>
       )}
