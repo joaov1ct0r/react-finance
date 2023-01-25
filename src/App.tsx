@@ -18,10 +18,16 @@ function App() {
   });
 
   return (
-    <div>
-      {errors.date && <span>{errors.date.message}</span>}
-      {errors.value && <span>{errors.value.message}</span>}
-      {errors.description && <span>{errors.description.message}</span>}
+    <div className="container">
+      {errors.date && (
+        <div className="alert alert-danger">{errors.date.message}</div>
+      )}
+      {errors.value && (
+        <div className="alert alert-danger">{errors.value.message}</div>
+      )}
+      {errors.description && (
+        <div className="alert alert-danger">{errors.description.message}</div>
+      )}
       <form
         onSubmit={handleSubmit((data) => {
           setValues([
@@ -78,7 +84,9 @@ function App() {
           placeholder="Descrição"
         ></input>
 
-        <button type="submit">Salvar</button>
+        <button className="btn btn-primary" type="submit">
+          Salvar
+        </button>
       </form>
       <div>
         <ul>

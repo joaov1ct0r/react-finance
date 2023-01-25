@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/joaov1ct0r/react-finance#readme",
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
@@ -44,7 +42,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.1",
     "prettier": "^2.8.3",
-    "sass": "^1.57.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.4"
   }
