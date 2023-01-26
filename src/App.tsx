@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Finance from "./utils/Finance";
 import { useForm } from "react-hook-form";
 import Header from "./components/Header";
+import Errors from "./components/Errors";
 
 function App() {
   const [values, setValues] = useState<Finance[]>([]);
@@ -19,25 +20,11 @@ function App() {
   });
 
   return (
-    <div className="container">
-      <Header
-        links={[
-          "Lista",
-          "Criar entrada",
-          "Criar saida",
-          "Editar finanças",
-          "Deletar finanças",
-        ]}
-      />
-      {errors.date && (
-        <div className="alert alert-danger">{errors.date.message}</div>
-      )}
-      {errors.value && (
-        <div className="alert alert-danger">{errors.value.message}</div>
-      )}
-      {errors.description && (
-        <div className="alert alert-danger">{errors.description.message}</div>
-      )}
+    <div className="">
+      <Header links={["Inicio", "Entradas", "Saidas", "Editar", "Deletar"]} />
+      {errors.date && <Errors message={errors.date.message} />}
+      {errors.value && <Errors message={errors.value.message} />}
+      {errors.description && <Errors message={errors.description.message} />}
       <form
         onSubmit={handleSubmit((data) => {
           setValues([
