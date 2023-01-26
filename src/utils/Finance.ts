@@ -1,11 +1,11 @@
 import GenerateId from "./GenerateId";
 
 export default class Finance {
-  public id: number;
-  public description: string;
-  public value: number;
-  public date: string;
-  public type: string;
+  id: number;
+  description: string;
+  value: number;
+  date: string;
+  type: string;
 
   constructor(description: string, value: number, date: string) {
     this.id = new GenerateId().execute();
