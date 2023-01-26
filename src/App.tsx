@@ -20,7 +20,15 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
+      <Header
+        links={[
+          "Lista",
+          "Criar entrada",
+          "Criar saida",
+          "Editar finanças",
+          "Deletar finanças",
+        ]}
+      />
       {errors.date && (
         <div className="alert alert-danger">{errors.date.message}</div>
       )}
