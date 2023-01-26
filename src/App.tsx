@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import Finance from "./utils/Finance";
-import { useForm } from "react-hook-form";
 import Header from "./components/Header";
 import Errors from "./components/Errors";
+import { register, handleSubmit, reset, errors } from "./states/states";
 
 function App() {
   const [values, setValues] = useState<Finance[]>([]);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<Finance>({
-    defaultValues: {
-      date: "",
-      value: "" as unknown as number,
-      description: "",
-    },
-  });
 
   return (
     <div className="">
