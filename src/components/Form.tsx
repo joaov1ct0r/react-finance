@@ -1,12 +1,14 @@
 import React from "react";
 import Finance from "../utils/Finance";
-import { register, handleSubmit, reset } from "../states/states";
+import States from "../states/states";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import { createFinance } from "../store/reducers/financeSlicer";
 
 export default function Form(): JSX.Element {
   const dispatch: AppDispatch = useDispatch();
+
+  const { handleSubmit, register, reset } = States();
 
   return (
     <form

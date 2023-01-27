@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import Finance from "./utils/Finance";
 import Header from "./components/Header";
 import Errors from "./components/Errors";
-import { errors } from "./states/states";
+import States from "./states/states";
 
 function App() {
   const [values, setValues] = useState<Finance[]>([]);
+
+  const { errors } = States();
 
   return (
     <div>
