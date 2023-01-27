@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Finance from "./utils/Finance";
 import Header from "./components/Header";
 import Errors from "./components/Errors";
 import States from "./states/states";
+import { useSelector } from "react-redux";
+import { ReduxState } from "./store";
 
 function App() {
-  const [values, setValues] = useState<Finance[]>([]);
+  const finances: Finance[] = useSelector((state: ReduxState) => {
+    return state;
+  });
 
   const { errors } = States();
 
@@ -17,7 +21,7 @@ function App() {
       {errors.description && <Errors message={errors.description.message} />}
       <div>
         <ul>
-          {values.map((value) => {
+          {finances.map((value) => {
             return (
               <li key={value.id} id={String(value.id)}>
                 Description: {value.description} | Valor: ${value.value} | Data:{" "}
