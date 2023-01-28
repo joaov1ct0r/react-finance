@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { ReduxState } from "../store";
 import Finance from "../utils/Finance";
 
-export default function CardNegative(): JSX.Element {
+export default function CardPositive(): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
     return state;
   });
