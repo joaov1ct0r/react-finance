@@ -16,7 +16,7 @@ function App() {
   const { errors } = States();
 
   return (
-    <div className="bg-black">
+    <div className="bg-dark-subtle">
       <Header links={["Inicio", "Entradas", "Saidas"]} />
       {errors.date && <Errors message={errors.date.message} />}
       {errors.value && <Errors message={errors.value.message} />}
