@@ -6,6 +6,7 @@ import States from "./states/states";
 import { useSelector } from "react-redux";
 import { ReduxState } from "./store";
 import CardNegative from "./components/CardNegative";
+import CardPositive from "./components/CardPositive";
 
 function App() {
   const finances: Finance[] = useSelector((state: ReduxState) => {
@@ -22,6 +23,7 @@ function App() {
       {errors.description && <Errors message={errors.description.message} />}
       <div className="d-flex justify-content-evenly mt-3">
         <CardNegative />
+        <CardPositive />
       </div>
       <div>
         <ul>
