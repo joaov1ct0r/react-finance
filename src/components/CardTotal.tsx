@@ -13,7 +13,7 @@ export default function CardTotal(): JSX.Element {
   }, 0);
 
   return (
-    <div className="card w-25 bg-success text-center">
+    <div className="card w-25 bg-dark text-center">
       <div className="card-header">
         <h5 className="card-title text-white">Total</h5>
       </div>
