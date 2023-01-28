@@ -5,6 +5,7 @@ import Errors from "./components/Errors";
 import States from "./states/states";
 import { useSelector } from "react-redux";
 import { ReduxState } from "./store";
+import CardNegative from "./components/CardNegative";
 
 function App() {
   const finances: Finance[] = useSelector((state: ReduxState) => {
@@ -14,11 +15,14 @@ function App() {
   const { errors } = States();
 
   return (
-    <div>
-      <Header links={["Inicio", "Entradas", "Saidas", "Editar", "Deletar"]} />
+    <div className="bg-black">
+      <Header links={["Inicio", "Entradas", "Saidas"]} />
       {errors.date && <Errors message={errors.date.message} />}
       {errors.value && <Errors message={errors.value.message} />}
       {errors.description && <Errors message={errors.description.message} />}
+      <div className="d-flex justify-content-evenly mt-3">
+        <CardNegative />
+      </div>
       <div>
         <ul>
           {finances.map((value) => {
