@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, ReduxState } from "../store";
 import Finance from "../utils/Finance";
 import { editFinance, deleteFinance } from "../store/reducers/financeSlicer";
+import { FiTrash } from "react-icons/fi";
 
 export default function List(): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
@@ -40,7 +41,7 @@ export default function List(): JSX.Element {
                     dispatch(deleteFinance(Number(e.currentTarget.id)));
                   }}
                 >
-                  Delete
+                  <FiTrash size={20}></FiTrash>
                 </button>
               </td>
             </tr>
@@ -68,7 +69,7 @@ export default function List(): JSX.Element {
                     dispatch(deleteFinance(Number(e.currentTarget.id)));
                   }}
                 >
-                  Delete
+                  <FiTrash size={20}></FiTrash>
                 </button>
               </td>
             </tr>
