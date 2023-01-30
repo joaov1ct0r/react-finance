@@ -30,7 +30,18 @@ export default function List(): JSX.Element {
               <td>{finance.date}</td>
               <td>{finance.description}</td>
               <td>
-                <button>Edit</button> <button>Delete</button>
+                <button>Edit</button>{" "}
+                <button
+                  id={String(finance.id)}
+                  className="border border-white bg-danger text-white"
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+
+                    dispatch(deleteFinance(Number(e.currentTarget.id)));
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ) : (
