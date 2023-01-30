@@ -18,9 +18,7 @@ export default function CardNegative(): JSX.Element {
         <h5 className="card-title text-white">Saidas</h5>
       </div>
       <div className="card-body">
-        <p className="card-text text-white text-center fs-5 text">
-          R$ -{total}
-        </p>
+        <p className="card-text text-white text-center fs-5 text">R${total}</p>
       </div>
     </div>
   );
