@@ -9,12 +9,13 @@ export default function List(): JSX.Element {
   });
 
   return (
-    <table className=" table bg-white w-50 mt-3 border border-dark">
+    <table className=" table bg-white w-75 mt-3 border border-dark">
       <thead>
         <tr>
           <th scope="col">Valor</th>
           <th scope="col">Data</th>
           <th scope="col">Descrição</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
 
@@ -25,12 +26,18 @@ export default function List(): JSX.Element {
               <td>R${finance.value}</td>
               <td>{finance.date}</td>
               <td>{finance.description}</td>
+              <td>
+                <button>Edit</button> <button>Delete</button>
+              </td>
             </tr>
           ) : (
             <tr className="bg-success text-white" key={finance.id}>
               <td>R${finance.value}</td>
               <td>{finance.date}</td>
               <td>{finance.description}</td>
+              <td>
+                <button>Edit</button> <button>Delete</button>
+              </td>
             </tr>
           );
         })}
