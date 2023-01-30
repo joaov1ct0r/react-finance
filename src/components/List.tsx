@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, ReduxState } from "../store";
 import Finance from "../utils/Finance";
 import { editFinance, deleteFinance } from "../store/reducers/financeSlicer";
-import { FiTrash } from "react-icons/fi";
+import { FiTrash, FiEdit2 } from "react-icons/fi";
 
 export default function List(): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
@@ -31,7 +31,9 @@ export default function List(): JSX.Element {
               <td>{finance.date}</td>
               <td>{finance.description}</td>
               <td>
-                <button>Edit</button>{" "}
+                <button>
+                  <FiEdit2 size={20}></FiEdit2>
+                </button>{" "}
                 <button
                   id={String(finance.id)}
                   className="border border-white bg-danger text-white"
@@ -58,7 +60,7 @@ export default function List(): JSX.Element {
                     e.preventDefault();
                   }}
                 >
-                  Edit
+                  <FiEdit2 size={20}></FiEdit2>
                 </button>{" "}
                 <button
                   id={String(finance.id)}
