@@ -1,12 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { ReduxState } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, ReduxState } from "../store";
 import Finance from "../utils/Finance";
+import { editFinance, deleteFinance } from "../store/reducers/financeSlicer";
 
 export default function List(): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
     return state;
   });
+
+  const dispatch: AppDispatch = useDispatch();
 
   return (
     <table className=" table bg-white w-75 mt-3 border border-dark">
@@ -36,7 +39,26 @@ export default function List(): JSX.Element {
               <td>{finance.date}</td>
               <td>{finance.description}</td>
               <td>
-                <button>Edit</button> <button>Delete</button>
+                <button
+                  id={String(finance.id)}
+                  className="border border-white bg-warning text-white"
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                  }}
+                >
+                  Edit
+                </button>{" "}
+                <button
+                  id={String(finance.id)}
+                  className="border border-white bg-danger text-white"
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+
+                    dispatch(deleteFinance(Number(e.currentTarget.id)));
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );
