@@ -11,7 +11,7 @@ function App() {
   const { errors } = States();
 
   return (
-    <div className="bg-dark-subtle">
+    <div>
       <Header links={["Inicio", "Entradas", "Saidas"]} />
       {errors.date && <Errors message={errors.date.message} />}
       {errors.value && <Errors message={errors.value.message} />}
@@ -21,7 +21,7 @@ function App() {
         <CardPositive />
         <CardTotal />
       </div>
-      <div>
+      <div className="d-flex justify-content-center">
         <List />
       </div>
     </div>

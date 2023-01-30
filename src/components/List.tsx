@@ -9,7 +9,7 @@ export default function List(): JSX.Element {
   });
 
   return (
-    <table className="table">
+    <table className=" table bg-white w-50 mt-3 border border-dark">
       <thead>
         <tr>
           <th scope="col">Valor</th>
@@ -20,9 +20,15 @@ export default function List(): JSX.Element {
 
       <tbody>
         {finances.map((finance: Finance) => {
-          return (
-            <tr key={finance.id}>
-              <td>{finance.value}</td>
+          return finance.type === "negative" ? (
+            <tr className="bg-danger text-white" key={finance.id}>
+              <td>R${finance.value}</td>
+              <td>{finance.date}</td>
+              <td>{finance.description}</td>
+            </tr>
+          ) : (
+            <tr className="bg-success text-white" key={finance.id}>
+              <td>R${finance.value}</td>
               <td>{finance.date}</td>
               <td>{finance.description}</td>
             </tr>
