@@ -32,24 +32,6 @@ export const financeSlice = createSlice({
       },
     },
 
-    editFinance: {
-      reducer: (state: Finance[], action: PayloadAction<Finance>) => {
-        return state.map((finance: Finance) => {
-          if (finance.id === action.payload.id) {
-            finance.description = action.payload.description;
-            finance.value = action.payload.value;
-            finance.date = action.payload.date;
-          }
-
-          return finance;
-        });
-      },
-
-      prepare: (data: Finance) => {
-        return { payload: data };
-      },
-    },
-
     deleteFinance: {
       reducer: (state: Finance[], action: PayloadAction<number>) => {
         return state.filter(
@@ -64,7 +46,6 @@ export const financeSlice = createSlice({
   },
 });
 
-export const { createFinance, deleteFinance, editFinance } =
-  financeSlice.actions;
+export const { createFinance, deleteFinance } = financeSlice.actions;
 
 export default financeSlice.reducer;
