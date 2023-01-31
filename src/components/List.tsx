@@ -27,7 +27,14 @@ export default function List(): JSX.Element {
         {finances.map((finance: Finance) => {
           return finance.type === "negative" ? (
             <tr className="text-center text-danger" key={finance.id}>
-              <td>R${finance.value}</td>
+              <td>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(finance.value)}
+              </td>
               <td>{finance.date}</td>
               <td>{finance.description}</td>
               <td>
@@ -49,7 +56,14 @@ export default function List(): JSX.Element {
             </tr>
           ) : (
             <tr className="text-center text-success" key={finance.id}>
-              <td>R${finance.value}</td>
+              <td>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(finance.value)}
+              </td>
               <td>{finance.date}</td>
               <td>{finance.description}</td>
               <td>
