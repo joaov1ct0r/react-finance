@@ -16,12 +16,12 @@ function App() {
       {errors.date && <Errors message={errors.date.message} />}
       {errors.value && <Errors message={errors.value.message} />}
       {errors.description && <Errors message={errors.description.message} />}
-      <div className="d-flex justify-content-evenly mt-3">
+      <div className="d-flex justify-content-evenly mt-5">
         <CardNegative />
         <CardPositive />
         <CardTotal />
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mt-5">
         <List />
       </div>
     </div>
