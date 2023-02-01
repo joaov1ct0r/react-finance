@@ -20,7 +20,14 @@ export default function CardNegative(): JSX.Element {
         <FiArrowDownCircle size={30} color="#FFF"></FiArrowDownCircle>
       </div>
       <div className="card-body">
-        <p className="card-text text-white text-center fs-5 text">R$ {total}</p>
+        <p className="card-text text-white text-center fs-5 text">
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          }).format(total)}
+        </p>
       </div>
     </div>
   );
