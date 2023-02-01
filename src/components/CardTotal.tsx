@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { ReduxState } from "../store";
 import Finance from "../utils/Finance";
+import { FiDollarSign } from "react-icons/fi";
 
 export default function CardTotal(): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
@@ -14,8 +15,9 @@ export default function CardTotal(): JSX.Element {
 
   return (
     <div className="card w-25 bg-dark text-center">
-      <div className="card-header">
+      <div className="card-header d-flex justify-content-between align-items-center">
         <h5 className="card-title text-white">Total</h5>
+        <FiDollarSign size={30} color="#FFF"></FiDollarSign>
       </div>
       <div className="card-body">
         <p className="card-text text-white text-center fs-5 text">R$ {total}</p>
