@@ -13,9 +13,7 @@ function App() {
       <Header links={["Inicio", "Entradas", "Saidas"]} />
       <CardNegative />
       <CardPositive />
-      <div className="d-flex justify-content-evenly mt-5">
-        <CardTotal />
-      </div>
+      <CardTotal />
       <div className="d-flex justify-content-center mt-5">
         <List />
       </div>
