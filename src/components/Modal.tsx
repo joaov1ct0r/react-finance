@@ -1,12 +1,28 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import States from "../states/states";
+import { AppDispatch } from "../store";
+import Finance from "../utils/Finance";
+import { createFinance } from "../store/reducers/financeSlicer";
 
 export default function Modal(): JSX.Element {
+  const dispatch: AppDispatch = useDispatch();
+  const { errors } = States();
+  const { handleSubmit, register, reset } = States();
   return (
-    <div className="modal bg-danger" tabIndex={-1}>
+    <div
+      className="modal fade"
+      id="exampleModal"
+      tabIndex={-1}
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
+            <h1 className="modal-title fs-5" id="exampleModalLabel">
+              Crie nova finança
+            </h1>
             <button
               type="button"
               className="btn-close"
@@ -14,21 +30,101 @@ export default function Modal(): JSX.Element {
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
+          <form
+            className="modal-body needs-validation"
+            onSubmit={handleSubmit((data: Finance) => {
+              dispatch(createFinance(data));
+
+              reset();
+            })}
+          >
+            <span className="input-group-text mb-3" id="basic-addon2">
+              Use o sinal de - para criar nova saida.
+            </span>
+            <div className="input-group mb-3 has-validation">
+              <input
+                {...register("value", {
+                  required: {
+                    value: true,
+                    message: "Valor é obrigatorio",
+                  },
+                  pattern: {
+                    value: /[0-9]{1,5}$/,
+                    message: "Valor Invalido",
+                  },
+                })}
+                type="number"
+                placeholder="Valor: R$100"
+                className="form-control"
+                required
+              ></input>
+              {errors.value && (
+                <div className="invalid-feedback">{errors.value.message}</div>
+              )}
+            </div>
+
+            <div className="input-group mb-3 has-validation">
+              <input
+                {...register("date", {
+                  required: {
+                    value: true,
+                    message: "Data é obrigatorio",
+                  },
+                  pattern: {
+                    value: /[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/,
+                    message: "Data Invalida",
+                  },
+                })}
+                type="string"
+                placeholder="DD/MM/YYYY"
+                className="form-control"
+                required
+              ></input>
+              {errors.date && (
+                <div className="invalid-feedback">{errors.date.message}</div>
+              )}
+            </div>
+
+            <div className="input-group mb-3 has-validation">
+              <input
+                {...register("description", {
+                  required: {
+                    value: true,
+                    message: "Descrição é obrigatorio",
+                  },
+                  pattern: {
+                    value: /[a-z][A-Z]{1,100}$/gi,
+                    message: "Descrição invalida",
+                  },
+                })}
+                type="text"
+                placeholder="Descrição"
+                className="form-control"
+                required
+              ></input>
+              {errors.description && (
+                <div className="invalid-feedback">
+                  {errors.description.message}
+                </div>
+              )}
+            </div>
+
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-danger mx-2"
               data-bs-dismiss="modal"
+              onClick={() => reset()}
             >
-              Close
+              Fechar
             </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
+            <button
+              type="submit"
+              className="btn btn-success"
+              onClick={() => reset()}
+            >
+              Salvar
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

@@ -3,22 +3,7 @@ import Finance from "../../utils/Finance";
 
 export const financeSlice = createSlice({
   name: "Finance",
-  initialState: [
-    {
-      id: 1,
-      description: "Teste",
-      value: 10,
-      date: "15/09/2001",
-      type: "positive",
-    },
-    {
-      id: 2,
-      description: "Teste 2 Teste 2",
-      value: -100,
-      date: "15/09/2001",
-      type: "negative",
-    },
-  ] as Finance[],
+  initialState: [] as Finance[],
   reducers: {
     createFinance: {
       reducer: (state: Finance[], action: PayloadAction<Finance>) => {
