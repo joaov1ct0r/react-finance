@@ -14,9 +14,7 @@ function App() {
       <CardNegative />
       <CardPositive />
       <CardTotal />
-      <div className="d-flex justify-content-center mt-5">
-        <List />
-      </div>
+      <List />
       <ModalButton />
       <Modal />
     </div>

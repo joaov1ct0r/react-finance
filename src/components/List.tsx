@@ -13,73 +13,75 @@ export default function List(): JSX.Element {
   const dispatch: AppDispatch = useDispatch();
 
   return (
-    <table className="table bg-white w-75 mt-3 border border-dark">
-      <thead className="text-center">
-        <tr>
-          <th scope="col">Valor</th>
-          <th scope="col">Data</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
+    <div className="d-flex justify-content-center mt-5">
+      <table className="table bg-white w-75 mt-3 border border-dark">
+        <thead className="text-center">
+          <tr>
+            <th scope="col">Valor</th>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {finances.map((finance: Finance) => {
-          return finance.type === "negative" ? (
-            <tr className="text-center text-danger" key={finance.id}>
-              <td>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                }).format(finance.value)}
-              </td>
-              <td>{finance.date}</td>
-              <td>{finance.description}</td>
-              <td>
-                <button
-                  id={String(finance.id)}
-                  className="border border-white bg-danger text-white"
-                  onClick={(e: React.MouseEvent) => {
-                    e.preventDefault();
+        <tbody>
+          {finances.map((finance: Finance) => {
+            return finance.type === "negative" ? (
+              <tr className="text-center text-danger" key={finance.id}>
+                <td>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(finance.value)}
+                </td>
+                <td>{finance.date}</td>
+                <td>{finance.description}</td>
+                <td>
+                  <button
+                    id={String(finance.id)}
+                    className="border border-white bg-danger text-white"
+                    onClick={(e: React.MouseEvent) => {
+                      e.preventDefault();
 
-                    dispatch(deleteFinance(Number(e.currentTarget.id)));
-                  }}
-                >
-                  <FiTrash size={20}></FiTrash>
-                </button>
-              </td>
-            </tr>
-          ) : (
-            <tr className="text-center text-success" key={finance.id}>
-              <td>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                }).format(finance.value)}
-              </td>
-              <td>{finance.date}</td>
-              <td>{finance.description}</td>
-              <td>
-                <button
-                  id={String(finance.id)}
-                  className="border border-white bg-danger text-white"
-                  onClick={(e: React.MouseEvent) => {
-                    e.preventDefault();
+                      dispatch(deleteFinance(Number(e.currentTarget.id)));
+                    }}
+                  >
+                    <FiTrash size={20}></FiTrash>
+                  </button>
+                </td>
+              </tr>
+            ) : (
+              <tr className="text-center text-success" key={finance.id}>
+                <td>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(finance.value)}
+                </td>
+                <td>{finance.date}</td>
+                <td>{finance.description}</td>
+                <td>
+                  <button
+                    id={String(finance.id)}
+                    className="border border-white bg-danger text-white"
+                    onClick={(e: React.MouseEvent) => {
+                      e.preventDefault();
 
-                    dispatch(deleteFinance(Number(e.currentTarget.id)));
-                  }}
-                >
-                  <FiTrash size={20}></FiTrash>
-                </button>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+                      dispatch(deleteFinance(Number(e.currentTarget.id)));
+                    }}
+                  >
+                    <FiTrash size={20}></FiTrash>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
