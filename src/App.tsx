@@ -10,7 +10,6 @@ import ModalButton from "./components/ModalButton";
 function App() {
   return (
     <div>
-      <Modal />
       <Header links={["Inicio", "Entradas", "Saidas"]} />
       <div className="d-flex justify-content-evenly mt-5">
         <CardNegative />
@@ -21,6 +20,7 @@ function App() {
         <List />
       </div>
       <ModalButton />
+      <Modal />
     </div>
   );
 }
