@@ -10,13 +10,17 @@ import ModalButton from "./components/ModalButton";
 function App() {
   return (
     <div>
-      <Header links={["Inicio", "Entradas", "Saidas"]} />
-      <CardNegative />
-      <CardPositive />
-      <CardTotal />
-      <List />
-      <ModalButton />
       <Modal />
+      <Header links={["Inicio", "Entradas", "Saidas"]} />
+      <div className="d-flex justify-content-evenly mt-5">
+        <CardNegative />
+        <CardPositive />
+        <CardTotal />
+      </div>
+      <div className="d-flex justify-content-center mt-5">
+        <List />
+      </div>
+      <ModalButton />
     </div>
   );
 }

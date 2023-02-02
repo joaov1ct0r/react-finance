@@ -14,22 +14,20 @@ export default function CardPositive(): JSX.Element {
   }, 0);
 
   return (
-    <div className="d-flex justify-content-evenly mt-5">
-      <div className="card w-25 bg-success text-center">
-        <div className="card-header d-flex justify-content-between align-items-center">
-          <h5 className="card-title text-white">Entradas</h5>
-          <FiArrowUpCircle size={30} color="#FFF"></FiArrowUpCircle>
-        </div>
-        <div className="card-body">
-          <p className="card-text text-white text-center fs-5 text">
-            {new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            }).format(total)}
-          </p>
-        </div>
+    <div className="card w-25 bg-success text-center">
+      <div className="card-header d-flex justify-content-between align-items-center">
+        <h5 className="card-title text-white">Entradas</h5>
+        <FiArrowUpCircle size={30} color="#FFF"></FiArrowUpCircle>
+      </div>
+      <div className="card-body">
+        <p className="card-text text-white text-center fs-5 text">
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          }).format(total)}
+        </p>
       </div>
     </div>
   );
