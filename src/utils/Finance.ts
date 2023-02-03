@@ -1,7 +1,7 @@
 import GenerateId from "./GenerateId";
 
 export default class Finance {
-  id: number;
+  id: string;
   description: string;
   value: number;
   date: string;

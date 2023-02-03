@@ -26,7 +26,11 @@ export default function List(): JSX.Element {
       <tbody>
         {finances.map((finance: Finance) => {
           return finance.type === "negative" ? (
-            <tr className="text-center text-danger" key={finance.id}>
+            <tr
+              className="text-center text-danger"
+              key={finance.id}
+              id={finance.id}
+            >
               <td>
                 {new Intl.NumberFormat("pt-BR", {
                   style: "currency",
@@ -39,12 +43,14 @@ export default function List(): JSX.Element {
               <td>{finance.description}</td>
               <td>
                 <button
-                  id={String(finance.id)}
+                  id={finance.id}
                   className="border border-white bg-danger text-white"
                   onClick={(e: React.MouseEvent) => {
                     e.preventDefault();
 
-                    dispatch(deleteFinance(Number(e.currentTarget.id)));
+                    console.log(e.currentTarget.parentElement?.parentElement);
+
+                    dispatch(deleteFinance(e.currentTarget.id));
                   }}
                 >
                   <FiTrash size={20}></FiTrash>
@@ -52,7 +58,11 @@ export default function List(): JSX.Element {
               </td>
             </tr>
           ) : (
-            <tr className="text-center text-success" key={finance.id}>
+            <tr
+              className="text-center text-success"
+              key={finance.id}
+              id={finance.id}
+            >
               <td>
                 {new Intl.NumberFormat("pt-BR", {
                   style: "currency",
@@ -65,12 +75,12 @@ export default function List(): JSX.Element {
               <td>{finance.description}</td>
               <td>
                 <button
-                  id={String(finance.id)}
+                  id={finance.id}
                   className="border border-white bg-danger text-white"
                   onClick={(e: React.MouseEvent) => {
                     e.preventDefault();
 
-                    dispatch(deleteFinance(Number(e.currentTarget.id)));
+                    dispatch(deleteFinance(e.currentTarget.id));
                   }}
                 >
                   <FiTrash size={20}></FiTrash>

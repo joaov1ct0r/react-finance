@@ -18,13 +18,13 @@ export const financeSlice = createSlice({
     },
 
     deleteFinance: {
-      reducer: (state: Finance[], action: PayloadAction<number>) => {
+      reducer: (state: Finance[], action: PayloadAction<string>) => {
         return state.filter(
           (finance: Finance) => finance.id !== action.payload
         );
       },
 
-      prepare: (data: number) => {
+      prepare: (data: string) => {
         return { payload: data };
       },
     },
