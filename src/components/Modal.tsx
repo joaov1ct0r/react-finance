@@ -7,8 +7,9 @@ import { createFinance } from "../store/reducers/financeSlicer";
 
 export default function Modal(): JSX.Element {
   const dispatch: AppDispatch = useDispatch();
-  const { errors } = States();
+
   const { handleSubmit, register, reset } = States();
+
   return (
     <div
       className="modal fade"
@@ -31,7 +32,7 @@ export default function Modal(): JSX.Element {
             ></button>
           </div>
           <form
-            className="modal-body needs-validation"
+            className="modal-body"
             onSubmit={handleSubmit((data: Finance) => {
               dispatch(createFinance(data));
 
@@ -41,7 +42,7 @@ export default function Modal(): JSX.Element {
             <span className="input-group-text mb-3" id="basic-addon2">
               Use o sinal de - para criar nova saida.
             </span>
-            <div className="input-group mb-3 has-validation">
+            <div className="input-group mb-3">
               <input
                 {...register("value", {
                   required: {
@@ -56,14 +57,10 @@ export default function Modal(): JSX.Element {
                 type="number"
                 placeholder="Valor: R$100"
                 className="form-control"
-                required
               ></input>
-              {errors.value && (
-                <div className="invalid-feedback">{errors.value.message}</div>
-              )}
             </div>
 
-            <div className="input-group mb-3 has-validation">
+            <div className="input-group mb-3">
               <input
                 {...register("date", {
                   required: {
@@ -78,14 +75,10 @@ export default function Modal(): JSX.Element {
                 type="string"
                 placeholder="DD/MM/YYYY"
                 className="form-control"
-                required
               ></input>
-              {errors.date && (
-                <div className="invalid-feedback">{errors.date.message}</div>
-              )}
             </div>
 
-            <div className="input-group mb-3 has-validation">
+            <div className="input-group mb-3">
               <input
                 {...register("description", {
                   required: {
@@ -100,13 +93,7 @@ export default function Modal(): JSX.Element {
                 type="text"
                 placeholder="Descrição"
                 className="form-control"
-                required
               ></input>
-              {errors.description && (
-                <div className="invalid-feedback">
-                  {errors.description.message}
-                </div>
-              )}
             </div>
 
             <button
@@ -117,11 +104,7 @@ export default function Modal(): JSX.Element {
             >
               Fechar
             </button>
-            <button
-              type="submit"
-              className="btn btn-success"
-              onClick={() => reset()}
-            >
+            <button type="submit" className="btn btn-success">
               Salvar
             </button>
           </form>
