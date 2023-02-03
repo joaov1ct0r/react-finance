@@ -5,10 +5,12 @@ import CardNegative from "../components/CardNegative";
 import List from "../components/List";
 import ModalButton from "../components/ModalButton";
 import Modal from "../components/Modal";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
     <div>
+      <Header links={["Entradas", "Saidas"]} />
       <div className="d-flex justify-content-evenly mt-5">
         <CardNegative />
         <CardPositive />
