@@ -57,6 +57,7 @@ export default function Modal(): JSX.Element {
                 type="number"
                 placeholder="Valor: R$100"
                 className="form-control"
+                required
               ></input>
             </div>
 
@@ -75,6 +76,7 @@ export default function Modal(): JSX.Element {
                 type="string"
                 placeholder="DD/MM/YYYY"
                 className="form-control"
+                required
               ></input>
             </div>
 
@@ -93,6 +95,7 @@ export default function Modal(): JSX.Element {
                 type="text"
                 placeholder="Descrição"
                 className="form-control"
+                required
               ></input>
             </div>
 
