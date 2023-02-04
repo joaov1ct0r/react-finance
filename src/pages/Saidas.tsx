@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../components/Header";
-import ListEach from "../components/ListEach";
 import ModalButton from "../components/ModalButton";
 import Modal from "../components/Modal";
 import CardNegative from "../components/CardNegative";
+import ListNegative from "../components/ListNegative";
 
 export default function Saidas(): JSX.Element {
   return (
@@ -13,7 +13,7 @@ export default function Saidas(): JSX.Element {
         <CardNegative />
       </div>
       <div className="d-flex justify-content-center mt-5">
-        <ListEach type="negative" />
+        <ListNegative />
       </div>
       <ModalButton />
       <Modal />
