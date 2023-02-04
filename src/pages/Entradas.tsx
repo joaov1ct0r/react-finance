@@ -8,7 +8,7 @@ import ListPositive from "../components/ListPositive";
 export default function Entradas(): JSX.Element {
   return (
     <div>
-      <Header links={["Inicio", "Saidas"]} />
+      <Header />
       <div className="d-flex justify-content-evenly mt-5">
         <CardPositive />
       </div>

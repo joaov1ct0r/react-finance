@@ -8,7 +8,7 @@ import ListNegative from "../components/ListNegative";
 export default function Saidas(): JSX.Element {
   return (
     <div>
-      <Header links={["Inicio", "Entradas"]} />
+      <Header />
       <div className="d-flex justify-content-evenly mt-5">
         <CardNegative />
       </div>
