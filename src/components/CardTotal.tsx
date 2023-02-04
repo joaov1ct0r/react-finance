@@ -13,6 +13,13 @@ export default function CardTotal(): JSX.Element {
     return acc + index.value;
   }, 0);
 
+  const formatedTotal = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(total);
+
   return (
     <div className="card w-25 bg-dark text-center">
       <div className="card-header d-flex justify-content-between align-items-center">
@@ -21,12 +28,7 @@ export default function CardTotal(): JSX.Element {
       </div>
       <div className="card-body">
         <p className="card-text text-white text-center fs-5 text">
-          {new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          }).format(total)}
+          {formatedTotal}
         </p>
       </div>
     </div>
