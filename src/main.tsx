@@ -5,6 +5,7 @@ import store from "./store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Entradas from "./pages/Entradas";
+import Saidas from "./pages/Saidas";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/entradas",
     element: <Entradas />,
+  },
+  {
+    path: "/saidas",
+    element: <Saidas />,
   },
 ]);
 
