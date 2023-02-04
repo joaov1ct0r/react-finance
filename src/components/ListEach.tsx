@@ -9,7 +9,7 @@ interface IListEachProps {
   type: string;
 }
 
-export default function List({ type }: IListEachProps): JSX.Element {
+export default function ListEach({ type }: IListEachProps): JSX.Element {
   const finances: Finance[] = useSelector((state: ReduxState) => {
     return state;
   });
