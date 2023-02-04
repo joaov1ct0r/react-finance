@@ -9,9 +9,16 @@ export default function CardPositive(): JSX.Element {
     return state;
   });
 
-  const total: number = finances.reduce((acc: number, index: Finance) => {
-    return index.value >= 0 ? acc + index.value : acc + 0;
+  const total = finances.reduce((acc: number, index: Finance) => {
+    return index.value >= 0 ? acc + index.value : acc;
   }, 0);
+
+  const formatedTotal = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(total);
 
   return (
     <div className="card w-25 bg-success text-center">
@@ -21,12 +28,7 @@ export default function CardPositive(): JSX.Element {
       </div>
       <div className="card-body">
         <p className="card-text text-white text-center fs-5 text">
-          {new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          }).format(total)}
+          {formatedTotal}
         </p>
       </div>
     </div>

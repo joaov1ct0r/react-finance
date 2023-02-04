@@ -11,7 +11,11 @@ export const financeSlice = createSlice({
       },
 
       prepare: (data: Finance) => {
-        const payload = new Finance(data.description, data.value, data.date);
+        const payload = new Finance(
+          data.description.toString(),
+          Number(data.value),
+          data.date.toString()
+        );
 
         return { payload };
       },
