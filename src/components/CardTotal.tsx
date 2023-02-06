@@ -1,13 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { ReduxState } from "../store";
 import Finance from "../utils/Finance";
 import { FiDollarSign } from "react-icons/fi";
+import useFinance from "../hooks/useFinance";
 
 export default function CardTotal(): JSX.Element {
-  const finances: Finance[] = useSelector((state: ReduxState) => {
-    return state;
-  });
+  const finances: Finance[] = useFinance();
 
   const total: number = finances.reduce((acc: number, index: Finance) => {
     return acc + index.value;
