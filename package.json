@@ -1,8 +1,8 @@
 {
   "name": "react-finance",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "App para cadastrar entradas e saidas de suas finanças, Inicialmente 1 button para que um modal com form para cadastro se abra.",
+  "main": "build/main.js",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/joaov1ct0r/react-finance.git"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript", "react", "typescript", "redux", "react-router", "docker", "docker-compose", "eslint", "jest", "vite"
+  ],
   "author": "github.com/joaov1ct0r",
   "license": "MIT",
   "bugs": {
