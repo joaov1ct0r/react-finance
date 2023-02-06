@@ -1,16 +1,15 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, ReduxState } from "../store";
+import { AppDispatch } from "../store";
 import Finance from "../utils/Finance";
 import { deleteFinance } from "../store/reducers/financeSlicer";
 import { FiTrash } from "react-icons/fi";
+import useFinance from "../hooks/useFinance";
+import useAppDispatch from "../hooks/useAppDispatch";
 
 export default function List(): JSX.Element {
-  const finances: Finance[] = useSelector((state: ReduxState) => {
-    return state;
-  });
+  const finances: Finance[] = useFinance();
 
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
 
   return (
     <table className="table bg-white w-75 mt-3 border border-dark">
