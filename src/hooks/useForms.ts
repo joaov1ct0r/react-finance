@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Finance from "../utils/Finance";
 
-export default function States() {
+export default function useForms() {
   const {
     register,
     handleSubmit,
