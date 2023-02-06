@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import States from "../hooks/useForms";
 import { AppDispatch } from "../store";
 import Finance from "../utils/Finance";
 import { createFinance } from "../store/reducers/financeSlicer";
+import useForms from "../hooks/useForms";
 
 export default function Modal(): JSX.Element {
   const dispatch: AppDispatch = useDispatch();
 
-  const { handleSubmit, register, reset } = States();
+  const { handleSubmit, register, reset } = useForms();
 
   return (
     <div
