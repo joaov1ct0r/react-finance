@@ -10,7 +10,7 @@ import Header from "../components/Header";
 export default function Home() {
   return (
     <div>
-      <Header links={["Entradas", "Saidas"]} />
+      <Header />
       <div className="d-flex justify-content-evenly mt-5">
         <CardNegative />
         <CardPositive />
