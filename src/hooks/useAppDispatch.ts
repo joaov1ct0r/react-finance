@@ -4,5 +4,5 @@ import { AppDispatch } from "../store";
 export default function useAppDispatch() {
   const dispatch: AppDispatch = useDispatch();
 
-  return { dispatch };
+  return dispatch;
 }
