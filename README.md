@@ -25,6 +25,8 @@
 <h2>Requisitos</h2>
 
 <ul>
+  <li>NodeJS</li>
+  <br>
   <li>NPM</li>
   <br>
   <li>Docker</li>
